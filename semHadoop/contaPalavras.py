@@ -1,11 +1,13 @@
 from collections import Counter
 
-# Ler o arquivo e contar as palavras
-with open("../palavras.txt", "r") as file:
-    words = file.read().splitlines()
+# Criar um contador vazio
+word_counts = Counter()
 
-# Contar frequências com Counter
-word_counts = Counter(words)
+# Ler o arquivo em blocos
+with open("palavras.txt", "r") as file:
+    for line in file:
+        words = line.strip().split()
+        word_counts.update(words)  # Atualiza o contador apenas com o bloco atual
 
 # Exibir resultados
 print("Frequência de Palavras:")
