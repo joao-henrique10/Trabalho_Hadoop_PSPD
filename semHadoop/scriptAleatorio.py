@@ -7,9 +7,9 @@ palavras = [
     "sorriso", "trabalho", "família", "paz", "luz", "estrela", "pspd"
 ]
 
-# Gerar 100 palavras aleatórias
+# Gerar 250 milhões de palavras aleatórias
 with open("palavras.txt", "w") as arquivo:
-    for _ in range(10000000):
+    for _ in range(250000000):
         arquivo.write(random.choice(palavras) + "\n")
 
 print("Arquivo 'palavras.txt' gerado com sucesso!")

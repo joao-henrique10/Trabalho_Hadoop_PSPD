@@ -11,6 +11,7 @@ Certifique-se de ter:
 - Uma máquina **Master** e pelo menos duas máquinas **Slave** configuradas corretamente.
 - O HDFS (Hadoop Distributed File System) configurado e funcionando.
 - O modo **YARN** ativado para execução de jobs no Hadoop.
+- Além disso, rode o código [contaPalavras.py](semHadoop/contaPalavras.py), para obter o arquivo palavras.txt.
 
 ---
 
@@ -106,27 +107,27 @@ hdfs dfs -cat /user/hadoop/output/part-00000
 A saída mostrará as palavras e suas frequências, como:
 
 ```
-amizade: 476579
-casa: 475505
-sol: 476059
-esperança: 475551
-paz: 476115
-alegria: 476292
-sorriso: 475933
-família: 475678
-chuva: 477155
-rio: 476944
-luz: 474687
-trabalho: 477185
-montanha: 477412
-vida: 475947
-saúde: 475713
-estrela: 475710
-flor: 476678
-natureza: 475188
-felicidade: 476291
-pspd: 476770
-amor: 476608
+alegria 11909369
+amizade 11907408
+amor 11904394
+casa 11910519
+chuva 11909131
+esperanca 11910777
+estrela 11902309
+familia 11905683
+felicidades 11908012
+flor 11910678
+luz 11905762
+montanha 11906136
+natureza 11908835
+paz 11906705
+pspd 11905845
+rio 11906274
+saude 11902727
+sol 11901505
+sorriso 11905435
+trabalho 11902790
+vida 11902909
 ```
 
 ---
@@ -137,7 +138,7 @@ amor: 476608
    - No arquivo `hdfs-site.xml`, configure o número de réplicas e os DataNodes.
 
 2. **Liste os Slaves**:
-   - No arquivo `slaves` do Master, adicione os endereços das máquinas Slaves:
+   - No arquivo `slaves` do Master, adicione os endereços ip das máquinas Slaves:
      ```
      slave1
      slave2
@@ -162,3 +163,47 @@ amor: 476608
 ---
 
 Com isso, você terá uma contagem de palavras funcional usando Hadoop e Python no seu cluster. Se precisar de ajustes ou ajuda adicional, é só perguntar!
+
+## Resultados
+
+Os resultados dos códigos [sem Hadoop](semHadoop/contaPalavras.py) e [com Hadoop](hadoop/) podem ser encontrados nas imagens abaixo:
+
+### Sem Hadoop
+
+![imagem sem hadoop](assets/resultadoSemHadoop.png)
+
+### Com Hadoop
+
+#### Dashboard do hadoop durante a execução
+![imagem com hadoop](assets/execDashboardHadoop.jpg)
+
+#### Durante a execução com hadoop do mapper e reducer
+![imagem com hadoop](assets/execucaoHadoop.jpg)
+
+
+#### Mostrando as máquinas conectadas
+![imagem com hadoop](assets/maquinasConectadas.jpg)
+
+#### Fim do processo Hadoop
+![imagem com hadoop](assets/fimProcessoHadoop.jpg)
+
+
+#### Logs que mostram na execução do hadoop
+![imagem com hadoop](assets/logs2Hadoop.jpg)
+![imagem com hadoop](assets/logsHadoop.jpg)
+
+#### Resultado utilizando o Hadoop
+![imagem com hadoop](assets/result2Hadoop.jpg)
+![imagem com hadoop](assets/resultadoComHadoop.jpg)
+
+#### Tempo com Hadoop
+
+- Tempos das imagens "incorretos"
+   - **Tempo da imagem total do Mapper**: 2.295.111 ms (~38.25 minutos)
+   - **Tempo da imagem total do Reducer**: 586.794 ms (~9.78 minutos)
+   - **Tempo da imagem total da execução (Mapper + Reducer)**: 2.881.905 ms (~48.03 minutos)
+   - Acreditamos que esse tempo esteja pegando também as vezes que testamos sem funcionar antes por problemas de caminho, portanto devem ser desconsiderados, abaixo o valore real.
+- A execução do teste  começou às 15:49 como mostrado na imagem da execução com hadoop e a execução terminou às 16:02 também mostrado na imagem do fim do processo, o que totalizou um total de ***13 minutos***.
+
+
+![imagem com hadoop](assets/tempoHadoop.jpg)
