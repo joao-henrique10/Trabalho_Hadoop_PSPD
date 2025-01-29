@@ -11,7 +11,7 @@ Certifique-se de ter:
 - Uma máquina **Master** e pelo menos duas máquinas **Slave** configuradas corretamente.
 - O HDFS (Hadoop Distributed File System) configurado e funcionando.
 - O modo **YARN** ativado para execução de jobs no Hadoop.
-- Além disso, rode o código [contaPalavras.py](semHadoop/contaPalavras.py), para obter o arquivo palavras.txt.
+- Além disso, rode o código [scriptAleatorio.py](semHadoop/scriptAleatorio.py), para obter o arquivo palavras.txt.
 
 ---
 
